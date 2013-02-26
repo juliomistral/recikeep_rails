@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     annotate (2.4.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -55,6 +56,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
+    nifty-generators (0.4.6)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -118,8 +120,10 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.4.0)
+  bcrypt-ruby
   coffee-rails (~> 3.2.1)
   jquery-rails
+  nifty-generators
   rails (= 3.2.12)
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
