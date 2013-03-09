@@ -1,3 +1,5 @@
+require 'password_policy'
+
 class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name
@@ -14,19 +16,12 @@ class User < ActiveRecord::Base
 
   def self.authenticate(login, pass)
     user = find_by_email(login)
-    return user if user && user.password_hash == user.encrypt_password(pass)
-  end
-
-  def encrypt_password(pass)
-    BCrypt::Engine.hash_secret(pass, password_salt)
+    return user if user && PasswordPolicy.passwords_match?(user, pass)
   end
 
   private
 
   def prepare_password
-    unless password.blank?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = encrypt_password(password)
-    end
+    PasswordPolicy.secure_user(self, password)
   end
 end
