@@ -1,7 +1,6 @@
 require 'password_policy'
 
 class User < ActiveRecord::Base
-  # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name
 
   attr_accessor :password
@@ -10,9 +9,13 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
+
+  has_many :recipes
+  has_many :tags
 
   def self.authenticate(login, pass)
     user = find_by_email(login)
