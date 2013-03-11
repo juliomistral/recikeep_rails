@@ -8,8 +8,12 @@ gem 'rails', '3.2.12'
 gem 'pg'
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
+  gem 'rspec-rails', '~> 2.0'
   gem 'annotate', '2.4.0'
+
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'pickle'
 end
 
 # Gems used only for assets and not required
