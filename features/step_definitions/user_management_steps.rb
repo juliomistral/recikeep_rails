@@ -12,6 +12,8 @@ When /^I fill in signup form with the following data$/  do |table|
   fill_in('user_email', :with => values['Email'])
   fill_in('user_password', :with => values['Password'])
   fill_in('user_password_confirmation', :with => values['Confirm Password'])
+  fill_in('user_first_name', :with => values['First Name'])
+  fill_in('user_last_name', :with => values['Last Name'])
 
   click_link_or_button('Sign up')
 end
