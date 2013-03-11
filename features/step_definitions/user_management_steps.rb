@@ -22,15 +22,3 @@ Then /^I'm redirected to the welcome page$/  do
   page.current_path.should == root_path
 end
 
-Then(/^a new user should exist with email "(.*?)"$/) do |email|
-  User.find_by_email(email).should_not == nil
-end
-
-Then /^I see a message saying I signed up correctly$/  do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I see the welcome message "(.*?)"$/  do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-

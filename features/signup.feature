@@ -10,6 +10,6 @@ Feature: User Signup
       | First Name | Last Name | Email        | Password | Confirm Password |
       | Julio      | Mistral   | foo@bar.com  | password | password         |
     Then I'm redirected to the welcome page
-    And a new user should exist with email "foo@bar.com"
+    And a user: "Julio" should exist with email: "foo@bar.com"
     # And I see a message saying I signed up correctly
     # And I see the welcome message "Welcome, Julio"
