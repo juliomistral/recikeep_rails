@@ -1,8 +1,8 @@
 class Recipe < ActiveRecord::Base
-  attr_accessible(:name)
+  attr_accessible :name, :tags, :ingredient_block, :step_block
 
   attr_accessor(:ingredient_block)
-  attr_accessor(:steps_block)
+  attr_accessor(:step_block)
   before_save :parse_blocks
 
   attr_accessor(:tags)
@@ -17,7 +17,7 @@ class Recipe < ActiveRecord::Base
 
   def parse_blocks
     new_ingredients = BlockParsers::IngredientParser.parse_block(ingredient_block)
-    new_steps = BlockParsers::StepParser.parse_block(steps_block)
+    new_steps = BlockParsers::StepParser.parse_block(step_block)
 
     self.steps.append(new_steps)
     self.ingredients.append(new_ingredients)
