@@ -22,19 +22,18 @@ ActiveRecord::Schema.define(:version => 20130307155613) do
 
   add_index "ingredients", ["recipe_id"], :name => "index_ingredients_on_recipe_id"
 
-  create_table "recipe_tags", :id => false, :force => true do |t|
-    t.integer "recipes_id"
-    t.integer "tags_id"
-  end
-
-  add_index "recipe_tags", ["recipes_id", "tags_id"], :name => "index_recipe_tags_on_recipes_id_and_tags_id"
-
   create_table "recipes", :force => true do |t|
     t.string   "name"
-    t.string   "tags"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "recipes_tags", :id => false, :force => true do |t|
+    t.integer "recipe_id"
+    t.integer "tag_id"
+  end
+
+  add_index "recipes_tags", ["recipe_id", "tag_id"], :name => "index_recipes_tags_on_recipe_id_and_tag_id"
 
   create_table "steps", :force => true do |t|
     t.string   "raw_text"
