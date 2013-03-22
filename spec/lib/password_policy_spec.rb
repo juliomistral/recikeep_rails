@@ -1,7 +1,7 @@
 require 'bcrypt'
 require 'password_policy'
 
-describe 'PasswordPolicy' do
+describe PasswordPolicy do
   let(:user) { user = double('salted_user',
                              :password_salt => 'salt',
                              :password_salt= => nil,

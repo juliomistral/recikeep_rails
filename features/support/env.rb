@@ -11,7 +11,6 @@ require 'cucumber/rails'
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
 Capybara.default_selector = :css
-#Capybara.app_host = 'http://127.0.0.1:3000'
 Capybara.default_driver = :selenium
 
 # By default, any exception happening in your Rails application will bubble up
