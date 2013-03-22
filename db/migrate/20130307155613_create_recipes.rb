@@ -2,8 +2,10 @@ class CreateRecipes < ActiveRecord::Migration
   def change
     create_table :recipes do |t|
       t.string :name
+      t.references :user
       t.timestamps
     end
+    add_index :recipes, :user_id
 
     create_table :steps do |t|
       t.string :raw_text

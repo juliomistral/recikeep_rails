@@ -1,5 +1,6 @@
+
 class Recipe < ActiveRecord::Base
-  attr_accessible :name, :tag_block, :ingredient_block, :step_block
+  attr_accessible :name, :user, :tag_block, :ingredient_block, :step_block
 
   attr_accessor(:ingredient_block)
   attr_accessor(:step_block)
@@ -30,5 +31,9 @@ class Recipe < ActiveRecord::Base
     puts 'New tags: ' + new_tags.inspect
     puts 'Existing tags: ' + self.tags.inspect
     new_tags.each { |tag| self.tags << tag }
+  end
+
+  def tag_string
+    self.tags.map{ |tag| tag.name }.join(', ')
   end
 end
