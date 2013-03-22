@@ -1,0 +1,23 @@
+<legend>Your Recipes</legend>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+
+      <dl>
+      <% @user_recipes.each do |recipe| %>
+        <div class='well well-small' style='width: 180px'>
+          <%= link_to recipe.name, edit_recipe_path(recipe) %>
+          <p>
+          <%= recipe.tag_string%>
+        </div>
+      <% end %>
+      </dl>
+
+    </div>
+    <div class="span10">
+      <!--Body content-->
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Have a new recipe to add?', new_recipe_path %>
