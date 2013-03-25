@@ -65,6 +65,13 @@
     .marketing p + h4 {
       margin-top: 28px;
     }
+
+    .user-greeting {
+      padding-right: 10px;
+      padding-top: 20px;
+      font-family:'Conv_SpecialElite',Sans-Serif;
+      color: #ffffff;
+    }
   </style>
 </head>
 
@@ -74,14 +81,19 @@
   <div class="navbar navbar-fixed-top" style="padding-bottom: 20px">
     <div class="navbar-inner">
       <span class="logo pull-left"></span>
+      <span class="pull-right user-greeting">
+      <% if logged_in? %>
+        Welcome <%= current_user.greeting %><p>
+        <%= link_to 'My Account', edit_current_user_path %> | <%= link_to 'Log out', logout_path %>
+      </p>
+      <% else %>
+        <%= link_to 'Sign up', signup_path %> | <%= link_to 'Log in', login_path %>
+      <% end %>
+      </span>
     </div>
   </div>
 
-  <!--
-  <div id="masthead-sep" class="row">
-    <div class="span12">&nbsp;</div>
-  </div>
-  -->
+
   <%= yield %>
 
   <!-- Le javascript

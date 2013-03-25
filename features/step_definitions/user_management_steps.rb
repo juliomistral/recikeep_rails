@@ -15,10 +15,14 @@ When /^I fill in signup form with the following data$/  do |table|
   fill_in('user_first_name', :with => values['First Name'])
   fill_in('user_last_name', :with => values['Last Name'])
 
-  click_link_or_button('Sign up')
+  click_link_or_button('submit_user_form')
 end
 
 Then /^I'm redirected to the welcome page$/  do
   page.current_path.should == root_path
+end
+
+Then(/^I see the welcome message "(.*?)" in the navbar$/) do |welcome_message|
+  within('.navbar') { page.should have_content(welcome_message) }
 end
 
