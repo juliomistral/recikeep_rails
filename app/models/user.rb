@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     return user if user && PasswordPolicy.passwords_match?(user, pass)
   end
 
+  def greeting
+    self.first_name != nil ? self.first_name : self.email
+  end
+
   private
 
   def prepare_password
