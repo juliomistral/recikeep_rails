@@ -1,17 +1,26 @@
 <% title "Log in" %>
+<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+<legend>Login!</legend>
 
-<div class="container">
-  <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
-
-  <%= form_tag sessions_path do %>
-    <p>
-      <%= label_tag :login, "Username or Email Address" %><br />
+<%= form_tag sessions_path, :class => 'form-horizontal' do %>
+  <div class="control-group">
+    <%= label_tag :login, 'Email', :class => 'control-label' %>
+    <div class="controls">
       <%= text_field_tag :login, params[:login] %>
-    </p>
-    <p>
-      <%= label_tag :password %><br />
-      <%= password_field_tag :password %>
-    </p>
-    <p><%= submit_tag "Log in" %></p>
-  <% end %>
-</div>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :password, 'Password', :class => 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :password, params[:password], :type => 'password' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class='controls'>
+      <p><%= submit_tag "Log in", :class => 'btn btn-primary' %></p>
+    </div>
+  </div>
+
+<% end %>

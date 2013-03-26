@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_many :tags
 
-  def self.authenticate(login, pass)
+  def self.authenticate_login(login, pass)
     user = find_by_email(login)
     return user if user && PasswordPolicy.passwords_match?(user, pass)
   end
