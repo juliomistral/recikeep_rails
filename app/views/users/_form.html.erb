@@ -39,7 +39,7 @@
 
   <div class="control-group">
     <div class='controls'>
-      <%= f.submit (@user.new_record? ? 'Sign up' : 'Update'), :class => 'btn btn-primary' %>
+      <%= f.submit (@user.new_record? ? 'Sign up' : 'Update'), :class => 'btn btn-primary', :id => 'submit_user_form'%>
     </div>
   </div>
 <% end %>
