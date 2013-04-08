@@ -84,7 +84,7 @@
       <span class="pull-right user-greeting">
       <% if logged_in? %>
         Welcome <%= current_user.greeting %><p>
-        <%= link_to 'My Account', edit_current_user_path %> | <%= link_to 'Log out', logout_path %>
+        <%= link_to 'My Recipes', recipes_path %> | <%= link_to 'Log out', logout_path %>
       </p>
       <% else %>
         <%= link_to 'Sign up', signup_path %> | <%= link_to 'Log in', login_path %>
