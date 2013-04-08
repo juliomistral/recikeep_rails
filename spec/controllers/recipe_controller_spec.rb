@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe RecipesController do
   let(:recipe) { return mock_model(Recipe, :id => 1, :name => 'a name') }
-  let(:user) { return mock_model(User, :user_id => 'user id') }
+  let(:user) { return mock_model(User, :user_id => 'user id')   }
   before(:each) { @controller.stubs(:current_user).returns(user) }
 
   #context 'Rendering empty recipe page' do
