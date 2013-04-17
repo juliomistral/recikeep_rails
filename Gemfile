@@ -14,6 +14,7 @@ group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'pickle'
+  gem 'spork-rails'
 end
 
 # Gems used only for assets and not required
