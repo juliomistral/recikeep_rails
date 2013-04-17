@@ -51,7 +51,7 @@ describe RecipesController do
 
     it 'should redirect to the recipe list page if the recipe is saved' do
       post :create, params
-      response.should render_template(:index)
+      response.should redirect_to(recipes_path)
     end
 
     it 'should redirect back to the create page if the recipe is invalid' do
