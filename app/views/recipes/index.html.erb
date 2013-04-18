@@ -1,23 +1,55 @@
+<style type="text/css">
+  .well-thick-outline {
+    border: 2px solid darkgray;
+  }
+  .recipe-entries {
+    margin-top: 10px;
+    height: 400px;
+    min-height: 400px;
+  }
+
+  .recipe-view {
+    margin-top: 10px;
+    height: 400px;
+    min-height: 400px;
+  }
+  .recipe-entry {
+    width: 140px
+  }
+  .well {
+    background-color: #ffffff;
+  }
+</style>
+
 <legend>Your Recipes</legend>
+<%= link_to 'Have a new recipe to add?', new_recipe_path %>
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
 
-      <dl>
-      <% @user_recipes.each do |recipe| %>
-        <div class='well well-small' style='width: 180px'>
-          <%= link_to recipe.name, edit_recipe_path(recipe) %>
-          <p>
-          <%= recipe.tag_string%>
+    <!-- Recipe list section -->
+    <div class="span3">
+      <div class="recipe-entries well well-large well-thick-outline">
+        <dl>
+          <% @user_recipes.each do |recipe| %>
+            <div class='well well-small recipe-group recipe-entry'>
+              <%= link_to recipe.name, edit_recipe_path(recipe) %>
+              <p>
+              <%= recipe.tag_string%>
+            </div>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Recipe detail section -->
+    <div class="span9 pull-right">
+      <div class="recipe-view well well-large well-thick-outline">
+        <div id="recipe_view" class="muted jumbotron">
+          Please select a recipe to view it's detail
         </div>
-      <% end %>
-      </dl>
+      </div>
+    </div>
 
-    </div>
-    <div class="span10">
-      <!--Body content-->
-    </div>
   </div>
 </div>
 
-<%= link_to 'Have a new recipe to add?', new_recipe_path %>
