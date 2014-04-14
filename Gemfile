@@ -14,6 +14,7 @@ group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'pickle'
+  gem 'selenium-webdriver', '~> 2.38.0'
 end
 
 # Gems used only for assets and not required
